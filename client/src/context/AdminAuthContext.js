@@ -46,7 +46,6 @@ export const AdminAuthProvider = ({ children }) => {
             setAdmin(res.data.admin); 
         } catch (error) {
             throw error
-            console.error("Login failed:", error);
         }
     };
 
