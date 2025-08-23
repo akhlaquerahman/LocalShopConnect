@@ -1,0 +1,72 @@
+/* src/styles/OrderDetailPage.css */
+
+/* existing styles... */
+
+.order-timeline-container {
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    max-width: 300px; /* Optional: for better centering on larger screens */
+    margin: 0 auto; /* Optional: for better centering */
+}
+
+.order-timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.order-timeline .timeline-item {
+    position: relative;
+    padding-left: 25px; /* Adjust as needed */
+    margin-bottom: 25px;
+}
+
+.order-timeline .timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.order-timeline .timeline-point {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background-color: #ddd; /* Default point color */
+    border-radius: 50%;
+}
+
+.order-timeline .timeline-line {
+    position: absolute;
+    left: 5px; /* Align with center of the point */
+    top: 1px;
+    bottom: -30px;
+    width: 3px;
+    background-color: #ddd; /* Default line color */
+    z-index: 1;
+}
+
+.order-timeline .timeline-item:last-child .timeline-line {
+    display: none; /* Hide the line on the last item */
+}
+
+/* Active status styles */
+.order-timeline .timeline-item.active .timeline-point {
+    background-color: #28a745; /* Green color for active point */
+}
+
+.order-timeline .timeline-item.active .timeline-content {
+    color: #28a745; /* Green color for active text */
+    font-weight: bold;
+}
+
+/* New: Make the line also active */
+.order-timeline .timeline-item.active .timeline-line {
+    background-color: #28a745; /* Green color for active line */
+}
+
+/* New: To connect the line from the active point to the next point */
+.order-timeline .timeline-item.active + .timeline-item .timeline-line {
+    background-color: #28a745; /* Green color for the next line segment */
+}

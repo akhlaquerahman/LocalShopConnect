@@ -1,0 +1,13 @@
+/* src/styles/AppOwnerLoginPage.css */
+.app-owner-login-page {
+    min-height: 80vh; /* Viewport height को adjust करें */
+    background-color: #f8f9fa; /* हल्का ग्रे background */
+    
+}
+
+.custom-card {
+    max-width: 450px;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: #ffffff; /* White background */
+}

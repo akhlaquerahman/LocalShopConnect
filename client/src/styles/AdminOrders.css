@@ -1,0 +1,57 @@
+/* ✅ Vertical Timeline Styles for AdminOrders.jsx */
+.order-timeline-container {
+    padding-left: 20px;
+    position: relative;
+    /* Optional: Center it vertically */
+    display: flex;
+    align-items: center;
+}
+
+.order-timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.order-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 4px; /* Adjust to center the line with the points */
+    bottom: 0;
+    width: 2px;
+    background-color: #ddd; /* Light grey line */
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #6c757d; /* Muted color for inactive status */
+    transition: color 0.3s ease;
+}
+
+.timeline-item.active {
+    color: #198754; /* Green color for active status */
+    font-weight: bold;
+}
+
+.timeline-point {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd; /* Inactive point color */
+    border: 2px solid #fff; /* White border to stand out */
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+.timeline-item.active .timeline-point {
+    background-color: #198754; /* Active point color (green) */
+}

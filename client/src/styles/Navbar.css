@@ -1,0 +1,66 @@
+/* src/styles/Navbar.css */
+
+/*
+  यह मीडिया क्वेरी (media query) 991.98px से कम चौड़ाई वाली स्क्रीन के लिए है,
+  जो Bootstrap के 'lg' (large) ब्रेकपॉइंट के बराबर है।
+*/
+@media (max-width: 991.98px) {
+  /* जब नेविगेशन बार कोलैप्स (collapse) होता है, तो तत्वों के बीच स्पेसिंग (spacing) ठीक करें */
+  .navbar-collapse {
+    padding: 1rem 0;
+  }
+
+  /* सर्च फॉर्म को मोबाइल पर पूरी चौड़ाई दें ताकि वह छोटा न दिखे */
+  .navbar-collapse .d-flex.w-100 {
+    width: 100% !important;
+    max-width: none !important; /* स्टाइलिंग को ओवरराइड (override) करें */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 1rem; /* सर्च बार के नीचे थोड़ा मार्जिन दें */
+  }
+  
+  /* वेलकम मैसेज को एक नई लाइन पर पुश करें */
+  .navbar-collapse .d-flex.align-items-center.text-white {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* कार्ट और लॉगिन/ड्रॉपडाउन सेक्शन के लिए लेआउट ठीक करें */
+  .navbar-collapse .d-flex.align-items-center.gap-2 {
+    width: 100%;
+    display: block !important;
+    margin-top: 1rem;
+  }
+
+  /* ड्रॉपडाउन को पूरी चौड़ाई दें ताकि यह अच्छी तरह से फ़िट हो सके */
+  .navbar-collapse .dropdown {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  /* सभी बटनों को पूरी चौड़ाई दें ताकि वे स्टैक (stack) हो सकें */
+  .navbar-collapse .btn {
+    width: 100%;
+  }
+}
+
+/* ✅ यह फिक्स है: `.dropdown-menu` पर `!important` का उपयोग करके 
+   बैकग्राउंड को निश्चित रूप से सफ़ेद करें।
+*/
+.dropdown-menu {
+    background-color: #ffffff !important; /* सफ़ेद बैकग्राउंड */
+    border: 1px solid #ccc; /* हल्का बॉर्डर ताकि मेनू अलग दिखे */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* हल्का शैडो */
+}
+
+/* ✅ ड्रॉपडाउन आइटम के लिए टेक्स्ट कलर को ठीक करें */
+.dropdown-menu .dropdown-item {
+    color: #212529; /* गहरा ग्रे टेक्स्ट कलर */
+}
+
+/* ✅ जब माउस आइटम पर हो, तब बैकग्राउंड और टेक्स्ट कलर बदलें */
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #000000;
+}

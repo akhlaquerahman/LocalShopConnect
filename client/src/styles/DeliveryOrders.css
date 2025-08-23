@@ -1,0 +1,116 @@
+/* client/src/styles/DeliveryOrders.css */
+
+.delivery-orders-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.delivery-orders-container h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.order-header h4 {
+    margin: 0;
+    color: #555;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+.status-accepted { background-color: #17a2b8; }
+.status-shifted { background-color: #ffc107; }
+.status-out-for-delivery { background-color: #dc3545; }
+.status-delivered { background-color: #28a745; }
+
+.order-sections {
+    display: flex;
+    gap: 30px;
+}
+
+.order-section {
+    flex: 1;
+}
+
+.order-section h5 {
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.order-section hr {
+    border-top: 1px solid #e9ecef;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.products-section h5 {
+    color: #6c757d;
+}
+
+.product-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #f1f1f1;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #fafafa;
+}
+
+.product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product-details {
+    flex: 1;
+}
+
+.product-description {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.status-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.no-orders-message {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    margin-top: 50px;
+}

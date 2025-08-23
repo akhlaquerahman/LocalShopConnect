@@ -1,0 +1,201 @@
+/* src/styles/CheckoutPage.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+}
+
+.checkout-container {
+    min-height: 100vh;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f2f5;
+}
+
+.checkout-card {
+    max-width: 550px; /* ✅ Optimized for smaller layout */
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(45deg, #0d6efd, #0b5ed7);
+    color: white;
+    padding: 1rem; /* ✅ Reduced padding */
+    border-bottom: none;
+    border-radius: 20px 20px 0 0 !important;
+    text-align: center;
+}
+
+.card-header h2 {
+    font-weight: 600;
+    font-size: 1.2rem; /* ✅ Reduced font size */
+    letter-spacing: 0.5px;
+}
+
+.section-title {
+    font-size: 1.05rem; /* ✅ Reduced font size */
+    font-weight: 600;
+    color: #1a237e;
+    margin-bottom: 0.75rem; /* ✅ Reduced margin */
+    display: flex;
+    align-items: center;
+}
+
+.section-title i {
+    color: #0d6efd;
+    font-size: 1.2rem; /* ✅ Reduced icon size */
+    margin-right: 0.5rem; /* ✅ Reduced margin */
+}
+
+.address-section,
+.payment-section {
+    background-color: #f9f9fb;
+    border: 1px solid #e9ecef !important;
+    border-radius: 15px;
+    padding: 1rem !important; /* ✅ Reduced padding */
+    position: relative;
+    margin-bottom: 1rem !important;
+}
+
+.custom-radio-card {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 0.7rem; /* ✅ Reduced padding */
+    background-color: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    margin-bottom: 0.6rem; /* ✅ Reduced margin */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.custom-radio-card:hover {
+    border-color: #0d6efd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.custom-radio-card.selected {
+    border-color: #0d6efd;
+    background-color: #e3f2fd;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+.custom-radio-indicator {
+    width: 16px; /* ✅ Reduced size */
+    height: 16px; /* ✅ Reduced size */
+    border-radius: 50%;
+    border: 2px solid #adb5bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.6rem; /* ✅ Reduced margin */
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.custom-radio-card.selected .custom-radio-indicator {
+    border-color: #0d6efd;
+    background-color: #0d6efd;
+}
+
+.custom-radio-indicator::after {
+    content: '';
+    width: 7px; /* ✅ Reduced size */
+    height: 7px; /* ✅ Reduced size */
+    border-radius: 50%;
+    background-color: white;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.custom-radio-card.selected .custom-radio-indicator::after {
+    transform: scale(1);
+}
+
+.address-content {
+    flex-grow: 1;
+    overflow: hidden;
+    margin-right: 0; /* ✅ Fixed the large margin causing blank space */
+}
+
+.address-content strong {
+    font-size: 0.85rem; /* ✅ Reduced font size */
+    color: #212529;
+    font-weight: 600;
+}
+
+.address-content .address-line {
+    font-size: 0.8rem; /* ✅ Reduced font size */
+    color: #495057;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0;
+}
+
+.address-content small {
+    display: block;
+    font-size: 0.7rem; /* ✅ Reduced font size */
+    color: #6c757d;
+    margin-top: 0.2rem; /* ✅ Reduced margin */
+}
+
+.qr-code {
+    max-width: 150px; /* ✅ Reduced size */
+    width: 50%;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.payment-instructions {
+    font-size: 0.8rem; /* ✅ Reduced font size */
+    color: #555;
+    margin-top: 0.75rem;
+    font-weight: 500;
+}
+
+.payment-confirm {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem; /* ✅ Reduced padding */
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem; /* ✅ Reduced font size */
+    letter-spacing: 0.5px;
+}
+
+.payment-confirm:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .checkout-card {
+        max-width: 95%; /* Adjust for smaller screens */
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .qr-code {
+        max-width: 120px; /* Smaller on mobile */
+    }
+    .card-header h2 {
+        font-size: 1.1rem;
+    }
+    .section-title {
+        font-size: 1rem;
+    }
+}
