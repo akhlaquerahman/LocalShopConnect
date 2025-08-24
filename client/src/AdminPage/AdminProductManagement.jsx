@@ -120,7 +120,7 @@ const AdminProductManagement = () => {
             return;
         }
         try {
-            await axios.delete(`http://localhost:5000/api/admin/products/${productId}`, {
+            await axios.delete(`${API_URL}/api/admin/products/${productId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             alert("✅ Product deleted successfully");

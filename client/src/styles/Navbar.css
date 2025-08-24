@@ -8,6 +8,24 @@
   /* जब नेविगेशन बार कोलैप्स (collapse) होता है, तो तत्वों के बीच स्पेसिंग (spacing) ठीक करें */
   .navbar-collapse {
     padding: 1rem 0;
+    background-color: #212529 !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* नेवबार कंटेनर को पूरी चौड़ाई दें */
+  .navbar > .container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   /* सर्च फॉर्म को मोबाइल पर पूरी चौड़ाई दें ताकि वह छोटा न दिखे */
@@ -17,6 +35,7 @@
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-bottom: 1rem; /* सर्च बार के नीचे थोड़ा मार्जिन दें */
+    padding: 0 15px;
   }
   
   /* वेलकम मैसेज को एक नई लाइन पर पुश करें */
@@ -24,6 +43,7 @@
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
+    padding: 0 15px;
   }
 
   /* कार्ट और लॉगिन/ड्रॉपडाउन सेक्शन के लिए लेआउट ठीक करें */
@@ -31,6 +51,7 @@
     width: 100%;
     display: block !important;
     margin-top: 1rem;
+    padding: 0 15px;
   }
 
   /* ड्रॉपडाउन को पूरी चौड़ाई दें ताकि यह अच्छी तरह से फ़िट हो सके */
@@ -42,6 +63,12 @@
   /* सभी बटनों को पूरी चौड़ाई दें ताकि वे स्टैक (stack) हो सकें */
   .navbar-collapse .btn {
     width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* नेवबार बटन को दाईं ओर ले जाएं */
+  .navbar-toggler {
+    margin-right: 15px;
   }
 }
 
@@ -52,6 +79,7 @@
     background-color: #ffffff !important; /* सफ़ेद बैकग्राउंड */
     border: 1px solid #ccc; /* हल्का बॉर्डर ताकि मेनू अलग दिखे */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* हल्का शैडो */
+    width: 100%;
 }
 
 /* ✅ ड्रॉपडाउन आइटम के लिए टेक्स्ट कलर को ठीक करें */
