@@ -95,7 +95,7 @@ Follow these steps to get the project running on your local machine.
 
 ## 📈 Project Status
 
-This project is currently **[e.g., under development / feature complete]**.
+Live Demo: https://local-shop-connect.vercel.app/
 
 ## 🤝 Contributing
 
