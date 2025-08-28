@@ -109,5 +109,5 @@ This project is licensed under the **MIT License**.
 
 Feel free to connect with me on [e.g., LinkedIn, Twitter].
 
--   **LinkedIn:** linkedin.com/in/akhlaque-rahman-6b1410293
+-   **LinkedIn:** https://linkedin.com/in/akhlaque-rahman-6b1410293
 -   **Email:** akhlaquerahman0786@gmail.com
