@@ -94,6 +94,7 @@
 /^\/api\/support\/?(?=\/|$)/i -> /:id
 /^\/api\/support\/?(?=\/|$)/i -> /
 /^\/api\/support\/?(?=\/|$)/i -> /:id/reply
+/^\/api\/support\/?(?=\/|$)/i -> /:id/resolve
 /^\/api\/support\/?(?=\/|$)/i -> /test-error
 /^\/api\/disputes\/?(?=\/|$)/i -> /
 /^\/api\/analytics\/?(?=\/|$)/i -> /
@@ -498,6 +499,7 @@
 /^\/api\/v1\/support\/?(?=\/|$)/i -> /:id
 /^\/api\/v1\/support\/?(?=\/|$)/i -> /
 /^\/api\/v1\/support\/?(?=\/|$)/i -> /:id/reply
+/^\/api\/v1\/support\/?(?=\/|$)/i -> /:id/resolve
 /^\/api\/v1\/support\/?(?=\/|$)/i -> /test-error
 /^\/api\/v1\/disputes\/?(?=\/|$)/i -> /
 /^\/api\/v1\/analytics\/?(?=\/|$)/i -> /

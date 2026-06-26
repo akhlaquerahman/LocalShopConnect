@@ -3,8 +3,6 @@ const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
-const REFRESH_SECRET = process.env.REFRESH_TOKEN_SECRET || 'supersecretrefresh';
-
 exports.register = async (data) => {
   if (data.role === 'SUPER_ADMIN') throw new Error('Forbidden to register as Super Admin');
   
@@ -34,7 +32,7 @@ exports.register = async (data) => {
   }
   
   const token = jwt.sign({ id: user._id, role: user.role, name: user.name }, JWT_SECRET, { expiresIn: '1d' });
-  const refreshToken = jwt.sign({ id: user._id, role: user.role }, REFRESH_SECRET, { expiresIn: '7d' });
+  const refreshToken = jwt.sign({ id: user._id, role: user.role }, JWT_SECRET, { expiresIn: '7d' });
   
   return { user, token, refreshToken };
 };
@@ -53,7 +51,7 @@ exports.login = async (email, password) => {
       await agent.save();
       
       const token = jwt.sign({ id: agent._id, role: 'SUPER_ADMIN', name: agent.fullName, isAgent: true, accountType: 'ADMIN_AGENT' }, JWT_SECRET, { expiresIn: '1d' });
-      const refreshToken = jwt.sign({ id: agent._id, role: 'SUPER_ADMIN', isAgent: true, accountType: 'ADMIN_AGENT' }, REFRESH_SECRET, { expiresIn: '7d' });
+      const refreshToken = jwt.sign({ id: agent._id, role: 'SUPER_ADMIN', isAgent: true, accountType: 'ADMIN_AGENT' }, JWT_SECRET, { expiresIn: '7d' });
       
       const userObj = { ...agent.toObject(), isAgent: true, role: 'SUPER_ADMIN', id: agent._id, accountType: 'ADMIN_AGENT' };
       delete userObj.password;
@@ -67,7 +65,7 @@ exports.login = async (email, password) => {
   if (user.status === 'SUSPENDED') throw new Error('Account suspended');
   
   const token = jwt.sign({ id: user._id, role: user.role, name: user.name, accountType: user.role === 'SELLER' ? 'SELLER_OWNER' : undefined }, JWT_SECRET, { expiresIn: '1d' });
-  const refreshToken = jwt.sign({ id: user._id, role: user.role, accountType: user.role === 'SELLER' ? 'SELLER_OWNER' : undefined }, REFRESH_SECRET, { expiresIn: '7d' });
+  const refreshToken = jwt.sign({ id: user._id, role: user.role, accountType: user.role === 'SELLER' ? 'SELLER_OWNER' : undefined }, JWT_SECRET, { expiresIn: '7d' });
   
   return { user, token, refreshToken };
 };
@@ -94,7 +92,7 @@ exports.staffLogin = async (email, password) => {
   await staff.save();
   
   const token = jwt.sign({ id: staff._id, role: staff.role, name: staff.fullName, isStaff: true, shopId: staff.shopId, accountType: 'SELLER_STAFF' }, JWT_SECRET, { expiresIn: '1d' });
-  const refreshToken = jwt.sign({ id: staff._id, role: staff.role, isStaff: true, accountType: 'SELLER_STAFF' }, REFRESH_SECRET, { expiresIn: '7d' });
+  const refreshToken = jwt.sign({ id: staff._id, role: staff.role, isStaff: true, accountType: 'SELLER_STAFF' }, JWT_SECRET, { expiresIn: '7d' });
   
   const userObj = { ...staff.toObject(), isStaff: true, id: staff._id };
   delete userObj.password;
@@ -104,12 +102,12 @@ exports.staffLogin = async (email, password) => {
 
 exports.refreshToken = async (token) => {
   try {
-    const payload = jwt.verify(token, REFRESH_SECRET);
+    const payload = jwt.verify(token, JWT_SECRET);
     const user = await User.findById(payload.id);
     if (!user || user.status === 'SUSPENDED') throw new Error('Invalid user or suspended');
     
     const newToken = jwt.sign({ id: user._id, role: user.role, name: user.name }, JWT_SECRET, { expiresIn: '1d' });
-    const newRefreshToken = jwt.sign({ id: user._id, role: user.role }, REFRESH_SECRET, { expiresIn: '7d' });
+    const newRefreshToken = jwt.sign({ id: user._id, role: user.role }, JWT_SECRET, { expiresIn: '7d' });
     
     return { token: newToken, refreshToken: newRefreshToken };
   } catch (err) {
