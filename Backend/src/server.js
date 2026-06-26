@@ -134,3 +134,4 @@ connectDB().then(async () => {
 });
 
 // Trigger restart
+module.exports = app;
