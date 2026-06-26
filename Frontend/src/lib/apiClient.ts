@@ -25,7 +25,7 @@ apiClient.interceptors.response.use(
       const refreshToken = useAuthStore.getState().refreshToken;
       if (refreshToken) {
         try {
-          const { data } = await axios.post('http://localhost:5000/api/auth/refresh-token', { refreshToken });
+          const { data } = await axios.post(`${apiClient.defaults.baseURL}/auth/refresh-token`, { refreshToken });
           if (data.success && data.token) {
             useAuthStore.getState().login({
               user: useAuthStore.getState().user!,
@@ -37,11 +37,11 @@ apiClient.interceptors.response.use(
           }
         } catch (refreshError) {
           useAuthStore.getState().logout();
-          window.location.href = '/login?reason=session_expired';
+          // Let React router handle redirection based on auth state
         }
       } else {
         useAuthStore.getState().logout();
-        window.location.href = '/login?reason=session_expired';
+        // Let React router handle redirection based on auth state
       }
     }
     
