@@ -143,12 +143,7 @@ export const Login: React.FC = () => {
             Register now
           </Link>
         </p>
-        <p className="text-xs text-text-secondary">
-          Are you a staff member?{' '}
-          <Link to="/staff/login" className="font-semibold text-accent hover:underline">
-            Staff Login
-          </Link>
-        </p>
+
       </div>
     </div>
   );

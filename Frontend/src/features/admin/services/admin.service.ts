@@ -145,20 +145,14 @@ export const adminService = {
     return res.data;
   },
 
-  getReviews: async (params: PaginationParams) => {
-    const res = await apiClient.get('/admin/reviews', { params });
-    return res.data;
-  },
+
 
   getRatings: async () => {
     const res = await apiClient.get('/admin/ratings');
     return res.data;
   },
 
-  getDisputes: async (params: PaginationParams) => {
-    const res = await apiClient.get('/admin/disputes', { params });
-    return res.data;
-  },
+
 
   getSupportTickets: async (params: PaginationParams) => {
     const res = await apiClient.get('/admin/support-tickets', { params });
@@ -175,10 +169,7 @@ export const adminService = {
     return res.data;
   },
 
-  getBanners: async (params: PaginationParams) => {
-    const res = await apiClient.get('/admin/banners', { params });
-    return res.data;
-  },
+
 
   getAdvertisements: async (params: PaginationParams) => {
     const res = await apiClient.get('/admin/advertisements', { params });
@@ -195,10 +186,7 @@ export const adminService = {
     return res.data;
   },
 
-  getBlogs: async (params: PaginationParams) => {
-    const res = await apiClient.get('/admin/blogs', { params });
-    return res.data;
-  },
+
 
   getFaqs: async (params: PaginationParams) => {
     const res = await apiClient.get('/admin/faqs', { params });

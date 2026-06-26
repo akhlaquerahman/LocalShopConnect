@@ -58,6 +58,35 @@ exports.login = async (email, password) => {
       
       return { user: userObj, token, refreshToken };
     }
+
+    // Check if it's a Staff
+    const Staff = require('../../models/Staff');
+    const StaffRole = require('../../models/StaffRole');
+    const staff = await Staff.findOne({ email }).select('+password');
+    if (staff && (await bcrypt.compare(password, staff.password))) {
+      if (staff.status === 'SUSPENDED') throw new Error('Account suspended');
+      
+      // Auto-migrate legacy staff if roleId is missing
+      if (!staff.roleId && staff.role) {
+        const roleName = staff.role.replace(/_/g, ' ').replace(/\\w\\S*/g, w => w.charAt(0).toUpperCase() + w.substr(1).toLowerCase());
+        const matchedRole = await StaffRole.findOne({ shopId: staff.shopId, name: roleName, isSystem: true });
+        if (matchedRole) {
+          staff.roleId = matchedRole._id;
+          staff.effectivePermissions = matchedRole.permissions;
+        }
+      }
+
+      staff.lastLogin = new Date();
+      await staff.save();
+      
+      const token = jwt.sign({ id: staff._id, role: staff.role, name: staff.fullName, isStaff: true, shopId: staff.shopId, accountType: 'SELLER_STAFF' }, JWT_SECRET, { expiresIn: '1d' });
+      const refreshToken = jwt.sign({ id: staff._id, role: staff.role, isStaff: true, accountType: 'SELLER_STAFF' }, JWT_SECRET, { expiresIn: '7d' });
+      
+      const userObj = { ...staff.toObject(), isStaff: true, id: staff._id };
+      delete userObj.password;
+      
+      return { user: userObj, token, refreshToken };
+    }
     
     throw new Error('Invalid credentials');
   }
